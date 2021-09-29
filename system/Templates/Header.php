@@ -1,8 +1,8 @@
 <?php
 session_start();
-// if (isset($_SESSION['user'])) {
-//     header('Location: ./pages/dashboard.php');
-// }
+if (!isset($_SESSION['user'])) {
+    header('Location: ../index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

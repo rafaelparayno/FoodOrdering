@@ -17,7 +17,7 @@ include('./Templates/Navigation.php');
             </li> -->
         </ul>
         <div class="logout_button">
-            <a href="#">Logout</a>
+            <a href="./logout.php">Logout</a>
         </div>
 
     </div>
