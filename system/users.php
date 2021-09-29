@@ -22,18 +22,23 @@ include('./Templates/Navigation.php');
 
     </div>
     <h1>Users</h1>
-    <table id="table_id">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Role</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- <tr>
+    <div class="content">
+
+        <div class="Actions_button">
+            <button data-toggle="modal" data-target="#addUserStudent" class="btn btn-md btn-success mr-2">Add User</button>
+        </div>
+        <table id="table_id">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
                 <td>data-1a</td>
                 <td>data-1b</td>
                 <td>data-1c</td>
@@ -54,8 +59,10 @@ include('./Templates/Navigation.php');
                 <td>data-4c</td>
             </tr> -->
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+
 </main>
 
 <?php
