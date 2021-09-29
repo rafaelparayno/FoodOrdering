@@ -38,6 +38,7 @@ main {
   position: fixed;
   background-color: var(--bg-primary);
   transition: width 600ms ease;
+  z-index: 100;
 }
 
 .navbar-nav {
@@ -132,6 +133,7 @@ main {
     bottom: 0;
     width: 100vw;
     height: 5rem;
+    z-index: 1;
   }
 
   .logo {
@@ -148,6 +150,7 @@ main {
 
   main {
     margin: 0;
+    z-index: -1;
   }
 }
 

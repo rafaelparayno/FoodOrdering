@@ -3,7 +3,7 @@ include('./Templates/Header.php');
 include('./Templates/Navigation.php');
 ?>
 <main>
-    <h1>Expenses</h1>
+    <h1>Reports</h1>
 
 </main>
 
