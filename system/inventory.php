@@ -3,18 +3,21 @@ include('./Templates/Header.php');
 include('./Templates/Navigation.php');
 include('./functions.php');
 
-// $categoryList = $category->getData();
+$itemlists = $items->getData();
 
 
-// if (isset($_POST['submitCategory'])) {
-
-//     $name = $_POST['categoryname'];
-
-//     $category->addCategory($name);
+if (isset($_POST['submitItem'])) {
 
 
-//     echo "<script>window.location='/FoodOrdering/system/categories.php';</script>";
-// }
+    $name = $_POST['itemname'];
+    $unit = $_POST['unitmeasure'];
+
+
+    $items->addItemList($name, $unit);
+
+
+    echo "<script>window.location='/FoodOrdering/system/inventory.php';</script>";
+}
 
 ?>
 <main>
@@ -44,7 +47,7 @@ include('./functions.php');
     <div class="content">
 
         <div class="Actions_button">
-            <button id="btnOpenModal" class="btn btn-md btn-success mr-2">Add Category</button>
+            <button id="btnOpenModal" class="btn btn-md btn-success mr-2">New Item</button>
         </div>
         <table id="table_id">
             <thead>
@@ -52,22 +55,24 @@ include('./functions.php');
                     <th>ID</th>
                     <th>Item Name</th>
                     <th>Unit Measurement</th>
-                    <th>Stock</th>
+                    <th>Stocks</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- <?php array_map(function ($categories) { ?>
+                <?php array_map(function ($itemss) { ?>
                     <tr>
-                        <td><?= $categories['c_id'] ?></td>
-                        <td><?= $categories['categoryname'] ?></td>
+                        <td><?= $itemss['i_id'] ?></td>
+                        <td><?= $itemss['itemname'] ?></td>
+                        <td><?= $itemss['unit'] ?></td>
+                        <td><?= $itemss['stock'] ?></td>
                         <td>
 
-                            <a href="editCategory.php?id=<?= $categories['c_id'] ?>">edit</a>
-                            <a href="deleteCategory.php?id=<?= $categories['c_id'] ?>">Delete</a>
+                            <a href="editCategory.php?id=<?= $itemss['i_id'] ?>">edit</a>
+                            <a href="deleteCategory.php?id=<?= $itemss['i_id'] ?>">Delete</a>
                         </td>
                     </tr>
-                <?php }, $categoryList) ?> -->
+                <?php }, $itemlists) ?>
 
             </tbody>
         </table>
@@ -83,9 +88,9 @@ include('./functions.php');
             <h2>Add Item Inventory</h2>
         </div>
         <div class="modal-body">
-            <form method="post">
+            <form method="POST">
                 <div class="form-group">
-                    <label for="itemname">Category Name: </label>
+                    <label for="itemname">Item Name: </label>
                     <input type="text" name="itemname" id="itemname" />
 
                     <!-- <input type="text" name="Course" class="form-control" id="Course" placeholder="Course"> -->
@@ -101,7 +106,7 @@ include('./functions.php');
                 </div>
 
                 <div class="modal-footer">
-                    <button name="submitCategory" type="submit">Save</button>
+                    <button name="submitItem" type="submit">Save</button>
                 </div>
             </form>
         </div>
