@@ -3,18 +3,18 @@ include('./Templates/Header.php');
 include('./Templates/Navigation.php');
 include('./functions.php');
 
-$categoryList = $category->getData();
+// $categoryList = $category->getData();
 
 
-if (isset($_POST['submitCategory'])) {
+// if (isset($_POST['submitCategory'])) {
 
-    $name = $_POST['categoryname'];
+//     $name = $_POST['categoryname'];
 
-    $category->addCategory($name);
+//     $category->addCategory($name);
 
 
-    echo "<script>window.location='/FoodOrdering/system/categories.php';</script>";
-}
+//     echo "<script>window.location='/FoodOrdering/system/categories.php';</script>";
+// }
 
 ?>
 <main>
@@ -40,7 +40,7 @@ if (isset($_POST['submitCategory'])) {
         </div>
 
     </div>
-    <h1>Categories</h1>
+    <h1>Inventory</h1>
     <div class="content">
 
         <div class="Actions_button">
@@ -50,12 +50,14 @@ if (isset($_POST['submitCategory'])) {
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Category Name</th>
+                    <th>Item Name</th>
+                    <th>Unit Measurement</th>
+                    <th>Stock</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <?php array_map(function ($categories) { ?>
+                <!-- <?php array_map(function ($categories) { ?>
                     <tr>
                         <td><?= $categories['c_id'] ?></td>
                         <td><?= $categories['categoryname'] ?></td>
@@ -65,7 +67,7 @@ if (isset($_POST['submitCategory'])) {
                             <a href="deleteCategory.php?id=<?= $categories['c_id'] ?>">Delete</a>
                         </td>
                     </tr>
-                <?php }, $categoryList) ?>
+                <?php }, $categoryList) ?> -->
 
             </tbody>
         </table>
@@ -78,15 +80,24 @@ if (isset($_POST['submitCategory'])) {
     <div class="modal-content">
         <div class="modal-header">
             <span class="close">&times;</span>
-            <h2>Add Category</h2>
+            <h2>Add Item Inventory</h2>
         </div>
         <div class="modal-body">
             <form method="post">
                 <div class="form-group">
-                    <label for="categoryname">Category Name: </label>
-                    <input type="text" name="categoryname" id="categoryname" />
+                    <label for="itemname">Category Name: </label>
+                    <input type="text" name="itemname" id="itemname" />
 
                     <!-- <input type="text" name="Course" class="form-control" id="Course" placeholder="Course"> -->
+                </div>
+                <div class="form-group">
+                    <label for="unitmeasure">Unit Measurement: </label>
+                    <select name="unitmeasure" id="unitmeasure">
+                        <option value="kg">Kg</option>
+                        <option value="Liters">Liters</option>
+                        <option value="Piece">per piece</option>
+                        <option value="box">per Box</option>
+                    </select>
                 </div>
 
                 <div class="modal-footer">

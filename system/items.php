@@ -13,7 +13,7 @@ include('./Templates/Navigation.php');
                 <a href="./categories.php" class="topnav-link">Categories</a>
             </li>
             <li class="nav-item">
-                <a class="topnav-link">Items</a>
+                <a href="inventory.php" class="topnav-link">Inventory</a>
             </li>
 
             <li class="nav-item">

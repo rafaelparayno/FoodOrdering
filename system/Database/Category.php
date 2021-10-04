@@ -24,9 +24,9 @@ class Category
         return $resultArray;
     }
 
-    public function getDatabySearching($condtion, $searchKey)
+    public function getDatabyId($id)
     {
-        $result = $this->db->con->query("SELECT * FROM category WHERE {$condtion} = '{$searchKey}' ");
+        $result = $this->db->con->query("SELECT * FROM category WHERE c_id = {$id} ");
 
         $result = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
@@ -68,9 +68,18 @@ class Category
     }
 
 
-    public function editCategory($id, $name, $code)
+    public function editCategory($id, $name)
     {
-        $queryString = "UPDATE category SET categoryname = '{$name}' WHERE strand_id = {$id}";
+        $queryString = "UPDATE category SET categoryname = '{$name}' WHERE c_id = {$id}";
+
+        $result = $this->db->con->query($queryString);
+        return $result;
+    }
+
+    public function deleteCategory($id)
+    {
+
+        $queryString = "DELETE FROM category WHERE c_id = {$id}";
 
         $result = $this->db->con->query($queryString);
         return $result;
