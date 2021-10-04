@@ -97,7 +97,7 @@ if (isset($_POST['submitItem'])) {
                 </div>
                 <div class="form-group">
                     <label for="unitmeasure">Unit Measurement: </label>
-                    <select name="unitmeasure" id="unitmeasure">
+                    <select class="select2_example" name="unitmeasure" id="unitmeasure">
                         <option value="kg">Kg</option>
                         <option value="Liters">Liters</option>
                         <option value="Piece">per piece</option>
