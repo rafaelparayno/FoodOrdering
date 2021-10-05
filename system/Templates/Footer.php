@@ -10,6 +10,12 @@
         $('.select2_example').select2();
     });
 
+    $('.numbers').keyup(function() {
+        this.value =
+            this.value.replace(/[^0-9\.]/g, '');
+    });
+
+
     const modal = document.getElementById("myModal");
 
     // Get the button that opens the modal
@@ -33,6 +39,27 @@
         if (event.target == modal) {
             modal.style.display = "none";
         }
+    }
+
+    function buttonCategoryButtonClick(id) {
+        $.ajax({
+            type: "post",
+            url: "ajax.php",
+            data: {
+                categoryid: id,
+            },
+            success: function(data) {
+                $('#listproducts').empty();
+
+                var obj = jQuery.parseJSON(data);
+
+                for (var key in obj) {
+                    var val = obj[key];
+                    $('#listproducts').append(`<div class="item_product">
+                        ${val.productname}</div>`)
+                }
+            }
+        });
     }
 </script>
 <script src="../../js/main.js"></script>

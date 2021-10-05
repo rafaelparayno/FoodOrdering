@@ -12,3 +12,11 @@ $users =  new User($db);
 $category =  new Category($db);
 $items = new Item($db);
 $products = new Product($db);
+
+if (isset($_POST['categoryid'])) {
+    $catid = $_POST['categoryid'];
+
+    $results = $products->getDatabyCatid($catid);
+
+    echo json_encode($results);
+}

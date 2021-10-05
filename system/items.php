@@ -1,6 +1,26 @@
 <?php
 include('./Templates/Header.php');
 include('./Templates/Navigation.php');
+
+include('./functions.php');
+
+$categoryList = $category->getData();
+$itemlists = $items->getData();
+$productList = $products->getData();
+
+if (isset($_POST['submitProduct'])) {
+
+    $name = $_POST['productName'];
+    $cat = $_POST['category'];
+    $price = $_POST['price'];
+
+
+    $products->addproducts($name, $cat, $price);
+
+
+
+    echo "<script>window.location='/FoodOrdering/system/items.php';</script>";
+}
 ?>
 <main>
 
@@ -42,26 +62,19 @@ include('./Templates/Navigation.php');
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr>
-                <td>data-1a</td>
-                <td>data-1b</td>
-                <td>data-1c</td>
-            </tr>
-            <tr>
-                <td>data-2a</td>
-                <td>data-2b</td>
-                <td>data-2c</td>
-            </tr>
-            <tr>
-                <td>data-3a</td>
-                <td>data-3b</td>
-                <td>data-3c</td>
-            </tr>
-            <tr>
-                <td>data-4a</td>
-                <td>data-4b</td>
-                <td>data-4c</td>
-            </tr> -->
+                <?php array_map(function ($prod) { ?>
+                    <tr>
+                        <td><?= $prod['p_id'] ?></td>
+                        <td><?= $prod['productname'] ?></td>
+                        <td><?= $prod['categoryname'] ?></td>
+                        <td><?= $prod['price'] ?></td>
+                        <td>
+
+                            <a href="editCategory.php?id=<?= $prod['p_id'] ?>">edit</a>
+                            <a href="deleteCategory.php?id=<?= $prod['p_id'] ?>">Delete</a>
+                        </td>
+                    </tr>
+                <?php }, $productList) ?>
 
             </tbody>
         </table>
@@ -74,15 +87,49 @@ include('./Templates/Navigation.php');
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
-                <h2>Modal Header</h2>
+                <h2>New Product</h2>
             </div>
             <div class="modal-body">
-                <p>Some text in the Modal Body</p>
-                <p>Some other text...</p>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="productName">Item Name: </label>
+                        <input type="text" name="productName" id="productName" />
+
+                        <!-- <input type="text" name="Course" class="form-control" id="Course" placeholder="Course"> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category </label>
+                        <select class="select2_example selectex" name="category" id="category">
+                            <?php array_map(function ($cat) { ?>
+
+                                <option value="<?= $cat['c_id'] ?>"><?= $cat['categoryname'] ?></option>
+                            <?php }, $categoryList) ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price: </label>
+                        <input class="numbers" value="" type="text" name="price" id="price" />
+
+                        <!-- <input type="text" name="Course" class="form-control" id="Course" placeholder="Course"> -->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemInventory">Item Inventory </label>
+                        <select class="select2_example selectex" name="itemInventory" id="itemInventory" multiple="multiple">
+
+                            <?php array_map(function ($itemss) { ?>
+
+                                <option value="<?= $itemss['i_id'] ?>"><?= $itemss['itemname'] ?></option>
+                            <?php }, $itemlists) ?>
+                        </select>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button name="submitProduct" type="submit">Save</button>
+                    </div>
+                </form>
             </div>
-            <div class="modal-footer">
-                <h3>Modal Footer</h3>
-            </div>
+
         </div>
 
     </div>

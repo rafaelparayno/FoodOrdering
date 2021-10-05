@@ -22,6 +22,7 @@ if (!isset($_SESSION['user'])) {
 
     <link rel="stylesheet" href="../css/style2.css" />
     <link rel="stylesheet" href="../css/app.css" />
+
 </head>
 
 <body>

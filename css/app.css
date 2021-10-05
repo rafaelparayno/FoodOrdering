@@ -152,9 +152,92 @@
   font-size: 1.25em;
   display: block;
   padding: 10px;
+  width: 100%;
 }
 .form-group input {
   font-size: 1.25em;
   padding: 10px;
   width: 70%;
+}
+
+.selectex {
+  width: 100%;
+}
+
+div.scrollmenu {
+  font-size: 24px;
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  margin-right: 50px;
+  width: 100%;
+  margin-right: 50px;
+}
+
+div.scrollmenu button {
+  font-size: 18px;
+  background-color: black;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+div.scrollmenu button:hover {
+  background-color: #777;
+}
+
+.details {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100vh;
+  width: 350px;
+  background-color: whitesmoke;
+}
+
+.cart {
+  height: 250px;
+  background-color: tan;
+  overflow: hidden;
+}
+
+.money {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.money-item {
+  font-size: 18px;
+  border: 1px solid black;
+  width: 5px;
+  padding: 5px 35px;
+  margin: 5px 5px;
+}
+
+.products {
+  padding: 20px;
+  height: 80vh;
+  background-color: rgb(14, 13, 13);
+  width: 65vw;
+}
+
+.list_products {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.item_product {
+  margin: 10px 10px;
+  padding: 20px 20px;
+  border: 1px solid #6649b8;
+  color: white;
 }
