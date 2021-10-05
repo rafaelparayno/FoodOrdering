@@ -1,7 +1,7 @@
 <?php
 
 
-class Invoice
+class SalesProduct
 {
     public $db = null;
 
@@ -13,7 +13,7 @@ class Invoice
 
     public function getData()
     {
-        $result = $this->db->con->query("SELECT * FROM invoice");
+        $result = $this->db->con->query("SELECT * FROM sales_product");
 
         $resultArray = array();
 
@@ -26,7 +26,7 @@ class Invoice
 
     public function getDatabyId($id)
     {
-        $result = $this->db->con->query("SELECT * FROM invoice WHERE invoice_id = {$id} ");
+        $result = $this->db->con->query("SELECT * FROM sales_product WHERE sales_product_id = {$id} ");
 
         $result = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
@@ -35,8 +35,18 @@ class Invoice
         return $result;
     }
 
+    public function multipleInsertData($sql)
+    {
+        if ($result = $this->db->con->multi_query($sql)) {
 
-    public function insertData($params = null, $table = "invoice")
+            echo "New records created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $this->db->con->error;
+        }
+    }
+
+
+    public function insertData($params = null, $table = "sales_product")
     {
         if ($this->db->con != null) {
             if ($params != null) {
@@ -48,16 +58,16 @@ class Invoice
 
                 $query_string = sprintf("INSERT INTO %s(%s) VALUES(%s)", $table, $columns, $values);
 
-                echo $query_string;
 
-                $result = $this->db->con->query($query_string);
+
+                $this->db->con->query($query_string);
                 $lastid = $this->db->con->insert_id;
                 return $lastid;
             }
         }
     }
 
-    public function addinvoice($sales)
+    public function addsales_product($sales)
     {
 
         $params = array(
@@ -71,7 +81,7 @@ class Invoice
     public function deleteItem($id)
     {
 
-        $queryString = "DELETE FROM invoice WHERE invoice_id = {$id}";
+        $queryString = "DELETE FROM sales_product WHERE sales_product_id = {$id}";
 
         $result = $this->db->con->query($queryString);
         return $result;

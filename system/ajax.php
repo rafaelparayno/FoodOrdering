@@ -6,6 +6,7 @@ require('./Database/Category.php');
 require('./Database/Item.php');
 require('./Database/Product.php');
 require('./Database/Invoice.php');
+require('./Database/SalesProduct.php');
 
 $db = new DBController();
 
@@ -14,6 +15,7 @@ $category =  new Category($db);
 $items = new Item($db);
 $products = new Product($db);
 $invoices = new Invoice($db);
+$salesProduct = new SalesProduct($db);
 
 if (isset($_POST['categoryid'])) {
     $catid = $_POST['categoryid'];
@@ -37,6 +39,18 @@ if (isset($_POST['datasProces'])) {
 
     $items = json_decode($newdatas, true);
 
-    echo $items[0]['sales'];
-    //$results = $invoices->addinvoice($items[]);
+
+    $results = $invoices->addinvoice($items['sales']);
+
+
+
+    $newdatas2 = json_encode($items['insideCart']);
+
+    $items2 = json_decode($newdatas2, true);
+    $sql = "";
+    foreach ($items2 as $item) {
+        $sql .= "INSERT INTO sales_product (p_id,sales_qtry,invoice_id) VALUES ({$item['itemid']},{$item['qty']},$results); ";
+    }
+
+    $salesProduct->multipleInsertData($sql);
 }

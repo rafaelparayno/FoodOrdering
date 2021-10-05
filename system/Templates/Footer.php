@@ -293,10 +293,10 @@
                 type: "post",
                 url: "ajax.php",
                 data: {
-                    datasProces: [{
-                        ...cartItem,
-                        sales: sale
-                    }]
+                    datasProces: {
+                        sales: sale,
+                        insideCart: cartItem,
+                    }
                 },
                 success: function(data) {
                     alert("Succesfully Finish Transaction");
