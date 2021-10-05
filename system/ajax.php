@@ -20,3 +20,11 @@ if (isset($_POST['categoryid'])) {
 
     echo json_encode($results);
 }
+
+if (isset($_POST['productid'])) {
+    $pid = $_POST['productid'];
+
+    $results = $products->getDatabyId($pid);
+
+    echo json_encode($results);
+}
