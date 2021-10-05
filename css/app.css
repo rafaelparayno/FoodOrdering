@@ -170,7 +170,7 @@ div.scrollmenu {
   overflow: auto;
   white-space: nowrap;
   margin-right: 50px;
-  width: 350px;
+  width: 500px;
   margin-right: 600px;
   white-space: nowrap;
 }
@@ -251,4 +251,5 @@ div.scrollmenu button:hover {
   padding: 20px 20px;
   border: 1px solid #6649b8;
   color: white;
+  background-color: black;
 }
