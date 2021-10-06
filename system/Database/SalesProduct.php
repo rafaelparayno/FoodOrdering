@@ -13,7 +13,8 @@ class SalesProduct
 
     public function getData()
     {
-        $result = $this->db->con->query("SELECT * FROM sales_product");
+        $result = $this->db->con->query("SELECT productname,sales_qtry,subTotal FROM sales_product 
+                        INNER JOIN products ON sales_product.p_id = products.p_id");
 
         $resultArray = array();
 
@@ -26,22 +27,26 @@ class SalesProduct
 
     public function getDatabyId($id)
     {
-        $result = $this->db->con->query("SELECT * FROM sales_product WHERE sales_product_id = {$id} ");
+        $result = $this->db->con->query("SELECT productname,sales_qtry,subTotal FROM sales_product 
+                        INNER JOIN products ON sales_product.p_id = products.p_id 
+                        WHERE invoice_id = {$id} ");
 
-        $result = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $resultArray = array();
 
+        while ($item = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $resultArray[] = $item;
+        }
 
-
-        return $result;
+        return $resultArray;
     }
 
     public function multipleInsertData($sql)
     {
         if ($result = $this->db->con->multi_query($sql)) {
 
-            echo "New records created successfully";
+            $res =  "New records created successfully";
         } else {
-            echo "Error: " . $sql . "<br>" . $this->db->con->error;
+            $res =  "Error: " . $sql . "<br>" . $this->db->con->error;
         }
     }
 

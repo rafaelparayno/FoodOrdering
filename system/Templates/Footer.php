@@ -6,6 +6,7 @@
     let cashReceive = 0;
     let cartKey = 0;
     let finishTransaction = 0;
+    let invoice_id = 0;
 
     const modal = document.getElementById("myModal");
     const modal2 = document.getElementById("myModal2");
@@ -309,6 +310,7 @@
                     $("#listproducts .item_product").attr("disabled", true);
                     $(".scrollmenu button").attr("disabled", true);
 
+                    invoice_id = data;
 
                 }
             });
@@ -316,6 +318,13 @@
         } else {
             alert("not Enough Money");
         }
+    }
+
+    function printReceipt() {
+
+        window.open('receipt.php?id=' + invoice_id);
+        window.open('OrderRep.php?id=' + invoice_id);
+
     }
 </script>
 <script src="../../js/main.js"></script>

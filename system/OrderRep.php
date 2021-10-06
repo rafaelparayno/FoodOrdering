@@ -13,7 +13,7 @@ $salesList = $salesProduct->getDatabyId($id);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receipt example</title>
+    <title>Order Receipt</title>
     <link rel="stylesheet" href="../css/print.css">
 </head>
 
@@ -22,7 +22,7 @@ $salesList = $salesProduct->getDatabyId($id);
         <div class="centered" style="width: 100%;">
             <img src="../assets/img//img.png" style="height:100px;text-align:center" alt="Logo">
         </div>
-        <h4 class="centered">Sales Invoice</h4>
+        <h4 class="centered">Order Receipt</h4>
         <p class="centered">
 
             <br>Date: <?= date("m/d/Y") ?>
@@ -34,7 +34,7 @@ $salesList = $salesProduct->getDatabyId($id);
                     <th class="description">ItemName</th>
                     <th class="quantity">Qty.</th>
 
-                    <th class="price">Subtotal </th>
+
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +42,6 @@ $salesList = $salesProduct->getDatabyId($id);
                     <tr>
                         <td class="description"><?= $salesprod['productname'] ?></td>
                         <td class="quantity"><?= $salesprod['sales_qtry'] ?></td>
-                        <td class="price"><?= '₱ ' . $salesprod['subTotal'] ?></td>
                     </tr>
                 <?php }, $salesList) ?>
             </tbody>

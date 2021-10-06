@@ -42,15 +42,17 @@ if (isset($_POST['datasProces'])) {
 
     $results = $invoices->addinvoice($items['sales']);
 
-
-
     $newdatas2 = json_encode($items['insideCart']);
 
     $items2 = json_decode($newdatas2, true);
     $sql = "";
     foreach ($items2 as $item) {
-        $sql .= "INSERT INTO sales_product (p_id,sales_qtry,invoice_id) VALUES ({$item['itemid']},{$item['qty']},$results); ";
+
+        $sql .= "INSERT INTO sales_product (p_id,sales_qtry,subTotal,invoice_id) 
+        VALUES ({$item['itemid']},{$item['qty']},{$item['totalPrice']},$results); ";
     }
 
     $salesProduct->multipleInsertData($sql);
+
+    echo json_encode($results);
 }

@@ -48,9 +48,9 @@ class Invoice
 
                 $query_string = sprintf("INSERT INTO %s(%s) VALUES(%s)", $table, $columns, $values);
 
-                echo $query_string;
 
-                $result = $this->db->con->query($query_string);
+
+                $this->db->con->query($query_string);
                 $lastid = $this->db->con->insert_id;
                 return $lastid;
             }

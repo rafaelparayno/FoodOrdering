@@ -60,7 +60,7 @@ $productList = $products->getData();
     </div>
     <div>
         <button id="processTransaction" onclick="process()" disabled>Process</button>
-        <button id="printReceipt" onclick="" disabled>Print Receipt</button>
+        <button id="printReceipt" onclick="printReceipt()" disabled>Print Receipt</button>
         <button id="newTrans" onclick="newTransaction()" disabled>New Transaction</button>
     </div>
 </div>
