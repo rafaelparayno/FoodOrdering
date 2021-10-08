@@ -15,9 +15,9 @@ class User
 
 
 
-    public function getData($table = 'usersaccounts')
+    public function getData()
     {
-        $result = $this->db->con->query("SELECT * FROM {$table} WHERE role  != 2");
+        $result = $this->db->con->query("SELECT * FROM useraccounts WHERE role  != 2");
 
         $resultArray = array();
 
@@ -80,18 +80,19 @@ class User
         }
     }
 
-    public function addToUsers($accid, $username, $role, $password)
+    public function addToUsers($firstname, $lastname, $username, $role, $password)
     {
 
         $crppypass =  password_hash($password, PASSWORD_DEFAULT);
         $params = array(
+            'firstname' => "'{$firstname}'",
+            'lastname' => "'{$lastname}'",
             'username' => "'{$username}'",
             'password' => "'{$crppypass}'",
-            'userole' => $role,
-            'acc_id' => "'{$accid}'",
+            'role' => $role,
         );
 
-        $result = $this->insertData($params);
+        $this->insertData($params);
         // if ($result) {
 
         //     //header("Location:" . './pages/users.php');
@@ -99,7 +100,7 @@ class User
     }
 
 
-    public function insertData($params = null, $table = "users")
+    public function insertData($params = null, $table = "useraccounts")
     {
         if ($this->db->con != null) {
             if ($params != null) {
