@@ -170,13 +170,11 @@ div.scrollmenu {
   overflow: auto;
   white-space: nowrap;
   margin-right: 50px;
-  width: 500px;
-  margin-right: 600px;
+  width: 100%;
   white-space: nowrap;
 }
 
 div.scrollmenu button {
-  font-size: 18px;
   background-color: black;
   display: inline-block;
   color: white;
@@ -185,6 +183,10 @@ div.scrollmenu button {
   margin-left: 20px;
   margin-bottom: 10px;
   text-decoration: none;
+}
+
+div.scrollmenu button:last-child {
+  margin-right: 100px;
 }
 
 div.scrollmenu button:hover {
@@ -233,9 +235,9 @@ div.scrollmenu button:hover {
 
 .products {
   padding: 20px;
-  height: 74vh;
+  height: 90vh;
   background-color: rgb(14, 13, 13);
-  width: 65vw;
+  width: 77vw;
 }
 
 .list_products {
@@ -252,4 +254,122 @@ div.scrollmenu button:hover {
   border: 1px solid #6649b8;
   color: white;
   background-color: black;
+}
+
+@media only screen and (max-width: 768px) {
+  .details {
+    height: 90vh;
+  }
+
+  div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    margin-right: 50px;
+    width: 400px;
+    padding-right: 200px;
+  }
+
+  div.scrollmenu button {
+    font-size: 14px;
+    background-color: black;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+
+  div.scrollmenu button:hover {
+    background-color: #777;
+  }
+
+  .details {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100vh;
+    width: 400px;
+    background-color: whitesmoke;
+  }
+
+  .cart {
+    height: 250px;
+    background-color: rgb(166, 112, 187);
+    overflow: auto;
+  }
+
+  .cart-item {
+    width: 100%;
+    height: 70px;
+    color: whitesmoke;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .money {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .money-item {
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid black;
+    width: 20%;
+    padding: 5px 0;
+    margin: 5px 5px;
+  }
+
+  .products {
+    padding: 20px;
+    height: 75vh;
+    background-color: rgb(14, 13, 13);
+    width: 40vw;
+    overflow-x: auto;
+    z-index: -1;
+  }
+
+  .list_products {
+  }
+
+  .item_product {
+    font-size: 12px !important;
+    word-wrap: break-word;
+    width: 120px;
+    margin: 10px 10px;
+    padding: 20px 20px;
+    border: 1px solid #6649b8;
+    color: white;
+    background-color: black;
+  }
+
+  .transaction_money {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .transaction_money div {
+    margin: 0px 20px;
+  }
+}
+
+.actions-buttons a {
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 5px 10px;
+  color: whitesmoke;
+}
+
+.editBtn {
+  background-color: rgb(75, 75, 211);
+}
+
+.delBtn {
+  background-color: rgb(226, 79, 21);
 }

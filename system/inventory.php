@@ -66,10 +66,10 @@ if (isset($_POST['submitItem'])) {
                         <td><?= $itemss['itemname'] ?></td>
                         <td><?= $itemss['unit'] ?></td>
                         <td><?= $itemss['stock'] ?></td>
-                        <td>
+                        <td class="actions-buttons">
 
-                            <a href="editCategory.php?id=<?= $itemss['i_id'] ?>">edit</a>
-                            <a href="deleteCategory.php?id=<?= $itemss['i_id'] ?>">Delete</a>
+                            <a class="editBtn" href="editCategory.php?id=<?= $itemss['i_id'] ?>">edit</a>
+                            <a class="delBtn" href="deleteCategory.php?id=<?= $itemss['i_id'] ?>">Delete</a>
                         </td>
                     </tr>
                 <?php }, $itemlists) ?>

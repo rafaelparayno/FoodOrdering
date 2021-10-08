@@ -68,10 +68,10 @@ if (isset($_POST['submitProduct'])) {
                         <td><?= $prod['productname'] ?></td>
                         <td><?= $prod['categoryname'] ?></td>
                         <td><?= $prod['price'] ?></td>
-                        <td>
+                        <td class="actions-buttons">
 
-                            <a href="editCategory.php?id=<?= $prod['p_id'] ?>">edit</a>
-                            <a href="deleteCategory.php?id=<?= $prod['p_id'] ?>">Delete</a>
+                            <a class="editBtn" href="editCategory.php?id=<?= $prod['p_id'] ?>">edit</a>
+                            <a class="delBtn" href="deleteCategory.php?id=<?= $prod['p_id'] ?>">Delete</a>
                         </td>
                     </tr>
                 <?php }, $productList) ?>

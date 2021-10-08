@@ -137,8 +137,10 @@ class User
                 $_SESSION['id'] = $args['u_id'];
                 $_SESSION['role'] = $args['role'];
 
-                if ($args['role'] === 1 || 2) {
+                if ($args['role'] === 1 ||  $args['role'] === 2) {
                     header("Location:" . './system/dashboard.php');
+                } else {
+                    header("Location:" . './system/cashier.php');
                 }
             }
         }

@@ -2,6 +2,10 @@
 include('./Templates/Header.php');
 include('./functions.php');
 
+$role = $_SESSION['role'];
+if ($role != 0) {
+    header('Location: ../index.php');
+}
 
 $categoryList = $category->getData();
 $itemlists = $items->getData();
@@ -49,13 +53,15 @@ $productList = $products->getData();
         <div onclick="clearMoney()" class="money-item">Clear</div>
     </div>
     <div class="billing">
-        <div class="cashReceive">
-            Cash Receive
-            <span id="cashReceiveId" class="cashReceive">₱ 0</span>
-        </div>
-        <div class="Change">
-            Changed:
-            <span id="cashChangedid" class="cashChanged">₱ 0</span>
+        <div class="transaction_money">
+            <div class="cashReceive">
+                Cash Receive
+                <span id="cashReceiveId" class="cashReceive">₱ 0</span>
+            </div>
+            <div class="Change">
+                Changed:
+                <span id="cashChangedid" class="cashChanged">₱ 0</span>
+            </div>
         </div>
     </div>
     <div>

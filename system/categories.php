@@ -59,10 +59,10 @@ if (isset($_POST['submitCategory'])) {
                     <tr>
                         <td><?= $categories['c_id'] ?></td>
                         <td><?= $categories['categoryname'] ?></td>
-                        <td>
+                        <td class="actions-buttons">
 
-                            <a href="editCategory.php?id=<?= $categories['c_id'] ?>">edit</a>
-                            <a href="deleteCategory.php?id=<?= $categories['c_id'] ?>">Delete</a>
+                            <a class="editBtn" href="editCategory.php?id=<?= $categories['p_id'] ?>">edit</a>
+                            <a class="delBtn" href="deleteCategory.php?id=<?= $categories['p_id'] ?>">Delete</a>
                         </td>
                     </tr>
                 <?php }, $categoryList) ?>
