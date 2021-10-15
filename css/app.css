@@ -1,3 +1,5 @@
+@import "expense.css";
+
 .top_navigation {
   background-color: var(--bg-primary);
   padding: 0 5em;
@@ -156,8 +158,24 @@
 }
 .form-group input {
   font-size: 1.25em;
-  padding: 10px;
+  padding: 5px;
   width: 70%;
+}
+
+.btn {
+  padding: 10px 20px;
+}
+
+.form-group-inline {
+  font-size: 1.25em;
+  display: inline;
+  padding: 10px;
+  width: 100%;
+}
+
+.form-group-inline input {
+  font-size: 1.25em;
+  padding: 10px;
 }
 
 .selectex {
@@ -372,4 +390,10 @@ div.scrollmenu button:hover {
 
 .delBtn {
   background-color: rgb(226, 79, 21);
+}
+
+.input-expense {
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
 }

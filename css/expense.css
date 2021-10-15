@@ -1,0 +1,35 @@
+.expense-table-header {
+  border: 1px solid #6649b8;
+  background-color: #6649b8;
+  padding: 15px 10px;
+  color: white;
+}
+
+.expense-table-content {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 300px;
+}
+
+.expense-data {
+  display: flex;
+  padding: 10px 10px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.expense-data button {
+  width: 100px;
+}
+
+.expense-name {
+  width: 400px;
+}
+
+.expense-cost {
+  width: 100px;
+}

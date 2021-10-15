@@ -65,6 +65,7 @@
 
     $(document).ready(function() {
         $('#table_id').DataTable();
+        $('#table2').DataTable();
     });
 
     $(document).ready(function() {

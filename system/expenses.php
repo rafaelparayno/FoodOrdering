@@ -14,11 +14,62 @@ include('./Templates/Navigation.php');
 
     </div>
     <h1>Expenses</h1>
+    <div class="content" style="margin-bottom: 20px;">
+        <div class="input-expense">
+            <div class="form-group-inline">
+
+                <input placeholder="Expense Name" type="text" name="productName" id="productName" />
+                <input placeholder="Expense Cost" type="text" name="productName" id="productName" />
+                <button class="btn">Add Expense</button>
+                <!-- <input type="text" name="Course" class="form-control" id="Course" placeholder="Course"> -->
+            </div>
+
+
+        </div>
+
+        <div>
+            <div class="expense-table">
+                <div class="expense-table-header">
+                    Expense
+                </div>
+                <div class="expense-table-content">
+                    <!-- <div class="expense-data">
+                        <button class="btn ">
+                            Delete
+                        </button>
+
+                        <span class="expense-name">
+                            Ice
+                        </span>
+
+                        <span class="expense-cost ">
+                            5.00
+                        </span>
+                    </div> -->
+
+                    <!-- <div class="expense-data">
+                        <button class="btn ">
+                            Delete
+                        </button>
+
+                        <span class="expense-name ">
+                            Ice
+                        </span>
+
+                        <span class="expense-cost ">
+                            5.00
+                        </span>
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="content">
 
-        <div class="Actions_button">
-            <button id="btnOpenModal" class="btn btn-md btn-success mr-2">Add Ex</button>
-        </div>
+
         <table id="table_id">
             <thead>
                 <tr>
@@ -39,58 +90,6 @@ include('./Templates/Navigation.php');
 </main>
 
 
-<div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close">&times;</span>
-            <h2>Add Category</h2>
-        </div>
-        <div class="modal-body">
-            <form method="POST">
-                <div class="form-group">
-                    <label for="firstnamein">Firstname: </label>
-                    <input type="text" name="firstnamein" id="firstnamein" />
-
-                    <!-- <input type="text" name="Course" class="form-control" id="Course" placeholder="Course"> -->
-                </div>
-                <div class="form-group">
-                    <label for="lastnamein">Lastname: </label>
-                    <input type="text" name="lastnamein" id="lastnamein" />
-
-                    <!-- <input type="text" name="Course" class="form-control" id="Course" placeholder="Course"> -->
-                </div>
-                <div class="form-group">
-                    <label for="usernamein">Username: </label>
-                    <input type="text" name="usernamein" id="usernamein" />
-
-                    <!-- <input type="text" name="Course" class="form-control" id="Course" placeholder="Course"> -->
-                </div>
-                <div class="form-group">
-                    <label for="passwordin">Password: </label>
-                    <input type="password" name="passwordin" id="passwordin" />
-
-                    <!-- <input type="text" name="Course" class="form-control" id="Course" placeholder="Course"> -->
-                </div>
-
-                <div class="form-group">
-                    <label for="role">Item Inventory </label>
-                    <select class="select2_example selectex" name="role" id="role">
-                        <option value="0">Cashier</option>
-                        <option value="1">Admin</option>
-                    </select>
-                </div>
-
-                <div class="modal-footer">
-                    <button name="saveUserAdmin" type="submit">Save</button>
-                </div>
-            </form>
-        </div>
-
-    </div>
-
-</div>
 <?php
 
 include('./Templates/Footer.php');
