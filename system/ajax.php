@@ -7,6 +7,7 @@ require('./Database/Item.php');
 require('./Database/Product.php');
 require('./Database/Invoice.php');
 require('./Database/SalesProduct.php');
+require('./Database/Expense.php');
 
 $db = new DBController();
 
@@ -16,6 +17,7 @@ $items = new Item($db);
 $products = new Product($db);
 $invoices = new Invoice($db);
 $salesProduct = new SalesProduct($db);
+$expense = new Expense($db);
 
 if (isset($_POST['categoryid'])) {
     $catid = $_POST['categoryid'];
@@ -55,4 +57,14 @@ if (isset($_POST['datasProces'])) {
     $salesProduct->multipleInsertData($sql);
 
     echo json_encode($results);
+}
+
+if (isset($_POST['expenseProcessSave'])) {
+
+    $datas = $_POST['expenseProcessSave'];
+    $newdatas = json_encode($datas);
+
+    $items = json_decode($newdatas, true);
+
+    $expense->multipleInsertData($items);
 }

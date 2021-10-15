@@ -2,6 +2,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
+    let expenseItems = [];
     let cartItem = [];
     let cashReceive = 0;
     let cartKey = 0;
@@ -10,7 +11,6 @@
 
     const modal = document.getElementById("myModal");
     const modal2 = document.getElementById("myModal2");
-
     // Get the button that opens the modal
     const btn = document.getElementById("btnOpenModal");
 
@@ -326,6 +326,66 @@
         window.open('receipt.php?id=' + invoice_id);
         window.open('OrderRep.php?id=' + invoice_id);
 
+    }
+
+
+    function addExpense() {
+        let valuename = document.getElementById("expensename").value;
+        let valuecost = document.getElementById("expensecost").value;
+
+
+        if (valuename === "" || valuecost === 0)
+            return;
+
+        let valueJson = {
+            valueName: valuename,
+            valueCost: Number(valuecost)
+        };
+
+        expenseItems.push(valueJson);
+
+        loadExpenseTable();
+        document.getElementById("expensename").value = "";
+        document.getElementById("expensecost").value = 0;
+    }
+
+    function loadExpenseTable() {
+        $("#expense-content").empty();
+        $("#expense-content").append(
+            expenseItems.map(e => {
+                return `<div class="expense-data">
+                        <button class="btn">
+                            Delete
+                        </button>
+
+                        <span class="expense-name">
+                            ${e.valueName}
+                        </span>
+
+                        <span class="expense-cost ">
+                        ₱ ${e.valueCost}
+                        </span>
+                    </div>`
+            })
+        );
+    }
+
+    function processExpense() {
+
+        let sale = getSubTotal();
+        let changed = cashReceive - sale;
+        $.ajax({
+            type: "post",
+            url: "ajax.php",
+            data: {
+                expenseProcessSave: expenseItems,
+            },
+            success: function(data) {
+                alert("Succesfully Save Expense");
+                $('#expense-content').empty();
+            }
+        });
+        expenseItems = [];
     }
 </script>
 <script src="../../js/main.js"></script>

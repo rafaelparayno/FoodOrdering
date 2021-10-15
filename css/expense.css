@@ -14,12 +14,25 @@
   height: 300px;
 }
 
+.expense-footer {
+  border: 1px solid #6649b8;
+  background-color: #6649b8;
+  padding: 15px 10px;
+  color: white;
+}
+
 .expense-data {
   display: flex;
   padding: 10px 10px;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
+}
+
+.btn-save-expense {
+  font-size: 1.25em;
+  padding: 10px 5px;
+  width: 100%;
 }
 
 .expense-data button {
