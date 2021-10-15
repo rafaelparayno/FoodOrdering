@@ -354,8 +354,8 @@
         $("#expense-content").append(
             expenseItems.map(e => {
                 return `<div class="expense-data">
-                        <button class="btn">
-                            Delete
+                        <button class="btn btn-delete btn-large">
+                        <i class="far fa-trash-alt"></i>
                         </button>
 
                         <span class="expense-name">
@@ -386,6 +386,42 @@
             }
         });
         expenseItems = [];
+    }
+
+
+    function filterExpense() {
+        let date = document.getElementById("filterdate").value;
+
+
+        $.ajax({
+            type: "post",
+            url: "ajax.php",
+            data: {
+                dateExpense: date,
+            },
+            success: function(data) {
+                $('#tableIdExpense').empty();
+
+                var obj = jQuery.parseJSON(data);
+
+                for (var key in obj) {
+                    var val = obj[key];
+                    $('#tableIdExpense').append(`
+                    <tr>
+                    <td>${val.e_name}</td>                   
+                    <td>${val.cost}</td>
+                    <td>${val.e_date}</td>
+                    </tr>
+                    `)
+                }
+                let totalValue = obj.reduce((currentTotal, item) => {
+                    return Number(item.cost) + Number(currentTotal);
+                }, 0);
+
+                $('#totalExpense').empty();
+                $('#totalExpense').append(`Total Expense: ${totalValue}`)
+            }
+        });
     }
 </script>
 <script src="../../js/main.js"></script>

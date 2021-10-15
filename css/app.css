@@ -51,7 +51,13 @@
 .content {
   border: 1px solid black;
   margin: 20px 50px;
+}
+
+.content-head {
+  border-bottom: 1px solid black;
+  font-size: 24px;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 .Actions_button {
@@ -164,6 +170,19 @@
 
 .btn {
   padding: 10px 20px;
+}
+
+.btn-transparent {
+  background-color: transparent;
+}
+
+.btn-delete {
+  background-color: tomato;
+  color: white;
+}
+
+.btn-large {
+  font-size: 20px;
 }
 
 .form-group-inline {

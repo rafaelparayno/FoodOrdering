@@ -15,6 +15,9 @@ include('./Templates/Navigation.php');
     </div>
     <h1>Expenses</h1>
     <div class="content" style="margin-bottom: 20px;">
+        <div class="content-head">
+            Add Expense
+        </div>
         <div class="input-expense">
             <div class="form-group-inline">
 
@@ -43,7 +46,32 @@ include('./Templates/Navigation.php');
             </div>
         </div>
     </div>
+    <div class="content">
+        <div style="margin: 10px 20px ;">
+            <div style="margin-bottom: 30px;" class="filterdate">
+                Search Date: <input id="filterdate" type="date" style="font-size: 20px;" />
+                <button style="font-size: 20px;" onclick=" filterExpense()" class="">Search</button>
 
+                <div style="margin-top: 20px;font-size:20px" id="totalExpense">
+                    Total Expense:
+                </div>
+            </div>
+
+            <table id="table_id">
+                <thead>
+                    <tr>
+                        <th>Expense Name</th>
+                        <th>Cost</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="tableIdExpense">
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
 </main>

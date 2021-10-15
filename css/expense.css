@@ -1,3 +1,7 @@
+.expense-table {
+  margin: 10px 20px;
+}
+
 .expense-table-header {
   border: 1px solid #6649b8;
   background-color: #6649b8;
@@ -27,6 +31,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
+  font-size: 1.75em;
 }
 
 .btn-save-expense {

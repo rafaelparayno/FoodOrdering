@@ -68,3 +68,11 @@ if (isset($_POST['expenseProcessSave'])) {
 
     $expense->multipleInsertData($items);
 }
+
+if (isset($_POST['dateExpense'])) {
+    $dateE = $_POST['dateExpense'];
+
+    $results = $expense->getDataDate($dateE);
+
+    echo json_encode($results);
+}
